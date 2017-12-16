@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.example.pc.flight_booking_app.acitivities.FlightBooking">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/button5"
+        android:layout_alignStart="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignStart="@+id/textView3"
+        android:text="TextView"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fbBtnOrigin"
+        android:layout_alignBottom="@+id/fbBtnOrigin"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="57dp"
+        android:text="TextView"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/fbBtnOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="28dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:text="Set Origin" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fbBtnOrigin"
+        android:layout_below="@+id/fbBtnOrigin"
+        android:layout_marginTop="22dp"
+        android:text="Set Destination" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="18dp"
+        android:text="Set Date" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Preview flight"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="Round Trip?"
+        android:layout_below="@+id/button5"
+        android:layout_alignStart="@+id/button5" />
+</RelativeLayout>
