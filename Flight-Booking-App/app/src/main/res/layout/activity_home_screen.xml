@@ -4,24 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="com.example.pc.flight_booking_app.acitivities.HomeScreen">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/hsBtnBookFlight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="54dp"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_marginTop="208dp"
         android:text="Book a flight" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/hsBtnViewBookings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:layout_alignStart="@+id/hsBtnBookFlight"
+        android:layout_below="@+id/hsBtnBookFlight"
+        android:layout_marginTop="17dp"
+        android:text="View Bookings" />
+
+    <Button
+        android:id="@+id/hsBtnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/hsBtnViewBookings"
+        android:layout_below="@+id/hsBtnViewBookings"
+        android:layout_marginTop="18dp"
+        android:text="Edit Personal and billing information" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_above="@+id/hsBtnViewBookings"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="83dp"
+        android:src="@drawable/planelogo" />
 </RelativeLayout>

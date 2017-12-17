@@ -65,8 +65,8 @@ public class TableData {
         return flightC8;
     }
 
-    public static String getFlightC9() {
-        return flightC9;
+    public static String getFlightC2() {
+        return flightC2;
     }
 
     public static String getTable_country() {
@@ -79,6 +79,14 @@ public class TableData {
 
     public static String getCountryC2() {
         return countryC2;
+    }
+
+    public static String getCountryC3() {
+        return countryC3;
+    }
+
+    public static String getCountryC4() {
+        return countryC4;
     }
 
     //Ticket table
@@ -94,19 +102,20 @@ public class TableData {
     //Flight option table
     private static final String table_flight = "flight_t";
     private static final String flightC1 = "flight_number";
-    private static final String flightC3 = "departure_date";
-    private static final String flightC4 = "departure_time";
-    private static final String flightC5 = "airline";
-    //origin and destination by country id
-    private static final String flightC6 = "origin";
-    private static final String flightC7 = "destination";
-    private static final String flightC8 = "ticket_price";
-    private static final String flightC9 = "flight_time";
+    private static final String flightC2 = "departure_date";
+    private static final String flightC3 = "departure_time";
+    private static final String flightC4 = "airline";
+    private static final String flightC5 = "origin";
+    private static final String flightC6 = "destination";
+    private static final String flightC7 = "ticket_price";
+    private static final String flightC8 = "flight_time";
 
-
+    //Countries table
     private static final String table_country = "country_t";
     private static final String countryC1 = "countryid";
-    private static final String countryC2 = "geo";
+    private static final String countryC2 = "country_name";
+    private static final String countryC3 = "long";
+    private static final String countryC4 = "lat";
 
 
 

@@ -8,22 +8,22 @@
     tools:context="com.example.pc.flight_booking_app.acitivities.FlightBooking">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/fbTxtDateDeparture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView4"
-        android:layout_alignTop="@+id/button5"
-        android:text="TextView"
+        android:layout_alignTop="@+id/fbBtnDateDeparture"
+        android:text="Date Departure?"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
+        android:layout_alignBaseline="@+id/fbBtnDes"
+        android:layout_alignBottom="@+id/fbBtnDes"
         android:layout_alignStart="@+id/textView3"
-        android:text="TextView"
+        android:text="Destination?"
         android:textSize="20sp" />
 
     <TextView
@@ -33,22 +33,21 @@
         android:layout_alignBaseline="@+id/fbBtnOrigin"
         android:layout_alignBottom="@+id/fbBtnOrigin"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="57dp"
-        android:text="TextView"
+        android:text="Origin?"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/fbBtnOrigin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="28dp"
-        android:layout_toEndOf="@+id/textView2"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="34dp"
         android:text="Set Origin" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/fbBtnDes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/fbBtnOrigin"
@@ -57,11 +56,11 @@
         android:text="Set Destination" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/fbBtnDateDeparture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button2"
-        android:layout_below="@+id/button2"
+        android:layout_alignStart="@+id/fbBtnDes"
+        android:layout_below="@+id/fbBtnDes"
         android:layout_marginTop="18dp"
         android:text="Set Date Depature"
         android:textSize="12sp" />
@@ -75,31 +74,31 @@
         android:text="Preview flight" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/fbChkRound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button5"
-        android:layout_below="@+id/button5"
+        android:layout_alignStart="@+id/fbBtnDateDeparture"
+        android:layout_below="@+id/fbBtnDateDeparture"
         android:layout_marginTop="26dp"
         android:text="Round Trip?" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/fbBtnDateReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/checkBox"
-        android:layout_below="@+id/checkBox"
+        android:layout_alignStart="@+id/fbChkRound"
+        android:layout_below="@+id/fbChkRound"
         android:layout_marginTop="12dp"
         android:text="Set Date Return"
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/fbTxtDateReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button7"
-        android:layout_alignBottom="@+id/button7"
-        android:layout_alignStart="@+id/textView2"
-        android:text="TextView"
+        android:layout_alignBaseline="@+id/fbBtnDateReturn"
+        android:layout_alignBottom="@+id/fbBtnDateReturn"
+        android:layout_alignStart="@+id/fbTxtDateDeparture"
+        android:text="Date Return?"
         android:textSize="20sp" />
 </RelativeLayout>
