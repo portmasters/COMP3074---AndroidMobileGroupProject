@@ -18,13 +18,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase sqlDB) {
 
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqlDB, int i, int i1) {
 
     }
 }
