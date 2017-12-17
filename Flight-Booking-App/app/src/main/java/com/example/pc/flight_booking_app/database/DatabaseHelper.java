@@ -27,4 +27,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqlDB, int i, int i1) {
 
     }
+
+    private String dropTable(){
+        return "DROP TABLE IF EXISTS " + TableData.getTable_ticket_flight()
+                + "," + TableData.getTable_country()
+                + "," + TableData.getTable_flight();
+    }
 }
