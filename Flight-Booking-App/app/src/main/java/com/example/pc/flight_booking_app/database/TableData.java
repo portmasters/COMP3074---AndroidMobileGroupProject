@@ -69,24 +69,24 @@ public class TableData {
         return flightC2;
     }
 
-    public static String getTable_country() {
-        return table_country;
+    public static String getTable_flightPoint() {
+        return table_flightPoint;
     }
 
-    public static String getCountryC1() {
-        return countryC1;
+    public static String getFlightPointC1() {
+        return flightPointC1;
     }
 
-    public static String getCountryC2() {
-        return countryC2;
+    public static String getFlightPointC2() {
+        return flightPointC2;
     }
 
-    public static String getCountryC3() {
-        return countryC3;
+    public static String getFlightPointC3() {
+        return flightPointC3;
     }
 
-    public static String getCountryC4() {
-        return countryC4;
+    public static String getFlightPointC4() {
+        return flightPointC4;
     }
 
     //Ticket table
@@ -111,11 +111,11 @@ public class TableData {
     private static final String flightC8 = "flight_time";
 
     //Countries table
-    private static final String table_country = "country_t";
-    private static final String countryC1 = "countryid";
-    private static final String countryC2 = "country_name";
-    private static final String countryC3 = "long";
-    private static final String countryC4 = "lat";
+    private static final String table_flightPoint = "flightPoint_t";
+    private static final String flightPointC1 = "flightPointid";
+    private static final String flightPointC2 = "country_name";
+    private static final String flightPointC3 = "long";
+    private static final String flightPointC4 = "lat";
 
 
 

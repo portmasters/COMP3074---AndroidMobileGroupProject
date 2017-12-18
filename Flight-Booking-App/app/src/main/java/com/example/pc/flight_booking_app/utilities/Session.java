@@ -1,4 +1,4 @@
-package com.example.pc.flight_booking_app.utility;
+package com.example.pc.flight_booking_app.utilities;
 
 import android.content.Context;
 import android.content.SharedPreferences;

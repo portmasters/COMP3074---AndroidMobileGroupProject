@@ -1,8 +1,15 @@
 package com.example.pc.flight_booking_app.database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.pc.flight_booking_app.actors.flightPoint;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by PC on 12/12/2017.
@@ -39,12 +46,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + TableData.getFlightC8() + " TEXT"
                 + ")";
 
-        String CREATE_COUNTRY_T = "CREATE TABLE " + TableData.getTable_country()
+        String CREATE_COUNTRY_T = "CREATE TABLE " + TableData.getTable_flightPoint()
                 + "("
-                + TableData.getCountryC1() + " INTEGER PRIMARY KEY,"
-                + TableData.getCountryC2() + " TEXT,"
-                + TableData.getCountryC3() + " REAL,"
-                + TableData.getCountryC4() + " REAL" + ")";
+                + TableData.getFlightPointC1() + " INTEGER PRIMARY KEY,"
+                + TableData.getFlightPointC2() + " TEXT,"
+                + TableData.getFlightPointC3() + " REAL,"
+                + TableData.getFlightPointC4() + " REAL" + ")";
 
         String CREATE_TICKET_FLIGHT_T = "CREATE TABLE " + TableData.getTable_ticket_flight()
                 + "("
@@ -59,6 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sqlDB.execSQL(execute);
 
 
+
     }
 
     @Override
@@ -71,7 +79,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //used to drop table
     private String dropTable(){
         return "DROP TABLE IF EXISTS " + TableData.getTable_ticket_flight()
-                + "," + TableData.getTable_country()
+                + "," + TableData.getTable_flightPoint()
                 + "," + TableData.getTable_flight();
     }
+
+    public void addCountry(flightPoint o){
+
+        SQLiteDatabase sqlDB = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(TableData.getFlightPointC2(),o.getName());
+        values.put(TableData.getFlightPointC3(),o.getLongi());
+        values.put(TableData.getFlightPointC4(),o.getLat());
+
+        sqlDB.insert(TableData.getTable_flightPoint(),null,values);
+        sqlDB.close();
+    }
+
+
+    public List<flightPoint> getCountries(){
+        List<flightPoint> list = new ArrayList<flightPoint>();
+
+        String query = "SELECT * FROM "+ TableData.getTable_flightPoint();
+
+        SQLiteDatabase sqlDB = this.getWritableDatabase();
+        Cursor cursor = sqlDB.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                flightPoint country = new flightPoint();
+                country.setId(Integer.parseInt(cursor.getString(0)));
+                country.setName((cursor.getString(1)));
+                country.setLongi(Float.parseFloat((cursor.getString(2))));
+                country.setLat(Float.parseFloat((cursor.getString(3))));
+
+
+
+                list.add(country);
+            }while(cursor.moveToNext());
+        }
+
+
+        return list;
+
+    }
+
 }
