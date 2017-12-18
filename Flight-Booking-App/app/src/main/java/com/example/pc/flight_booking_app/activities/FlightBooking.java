@@ -1,4 +1,4 @@
-package com.example.pc.flight_booking_app.acitivities;
+package com.example.pc.flight_booking_app.activities;
 
 import android.app.DatePickerDialog;
 import android.graphics.Color;
@@ -13,8 +13,6 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.example.pc.flight_booking_app.R;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 

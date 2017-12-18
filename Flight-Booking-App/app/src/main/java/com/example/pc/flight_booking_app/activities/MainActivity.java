@@ -1,9 +1,8 @@
-package com.example.pc.flight_booking_app.acitivities;
+package com.example.pc.flight_booking_app.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.pc.flight_booking_app.R;
 

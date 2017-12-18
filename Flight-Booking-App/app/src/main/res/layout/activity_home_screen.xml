@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="com.example.pc.flight_booking_app.acitivities.HomeScreen">
+    tools:context="com.example.pc.flight_booking_app.activities.HomeScreen">
 
     <Button
         android:id="@+id/hsBtnBookFlight"

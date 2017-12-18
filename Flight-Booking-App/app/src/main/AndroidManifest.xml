@@ -20,16 +20,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".acitivities.MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".acitivities.HomeScreen" />
-        <activity android:name=".acitivities.FlightBooking" />
-        <activity android:name=".acitivities.PreviewFlightBooking" />
+        <activity android:name=".activities.HomeScreen" />
+        <activity android:name=".activities.FlightBooking" />
+        <activity android:name=".activities.PreviewFlightBooking" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,7 +43,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".acitivities.MapsActivity"
+            android:name=".activities.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
     </application>
 

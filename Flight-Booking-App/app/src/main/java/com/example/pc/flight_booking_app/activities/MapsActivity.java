@@ -1,7 +1,12 @@
-package com.example.pc.flight_booking_app.acitivities;
+package com.example.pc.flight_booking_app.activities;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.pc.flight_booking_app.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -10,11 +15,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private LatLng originCor;
+    private Button btnContinue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +31,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        btnContinue = (Button) findViewById(R.id.mapBtnContinue);
+
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapsActivity.this,PreviewFlightBooking.class);
+
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 
@@ -40,9 +60,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        LatLng toronto = new LatLng(43.678317, -79.626538);
+        float[] result = new float[1];
+
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(toronto).title("Mark"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        Location.distanceBetween(43.678317, -79.626538,-34, 151,result);
+
+        Polyline line = mMap.addPolyline(new PolylineOptions()
+                .add(toronto,sydney)
+                .width(5)
+                .color(Color.RED));
     }
 }
