@@ -26,7 +26,7 @@ public class Session {
     }
 
     /* to use SESSION CLASS
-    
+
     private Session session;//global variable
     session = new Session(cntx); //in oncreate
     //and now we set sharedpreference then use this like
