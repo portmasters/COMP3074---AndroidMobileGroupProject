@@ -28,6 +28,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqlDB) {
 
+        for(String o : dropTable())
+            sqlDB.execSQL(o);
+
+
         //Table creation
         String CREATE_TICKET_T = "CREATE TABLE " + TableData.getTable_ticket()
                 + "("
@@ -52,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + TableData.getFlightPointC1() + " INTEGER PRIMARY KEY,"
                 + TableData.getFlightPointC2() + " TEXT,"
                 + TableData.getFlightPointC3() + " REAL,"
-                + TableData.getFlightPointC4() + " REAL"
+                + TableData.getFlightPointC4() + " REAL,"
                 + TableData.getFlightPointC5() + " TEXT"
                 + ")";
 
@@ -88,15 +92,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqlDB, int i, int i1) {
         //Execute when database version is updated
-        sqlDB.execSQL(dropTable());
+
+        for(String o : dropTable())
+        sqlDB.execSQL(o);
         onCreate(sqlDB);
     }
 
     //used to drop table
-    private String dropTable(){
-        return "DROP TABLE IF EXISTS " + TableData.getTable_ticket_flight()
-                + "," + TableData.getTable_flightPoint()
-                + "," + TableData.getTable_flight();
+    private List<String> dropTable(){
+        List<String> list = new ArrayList<String>();
+        list.add("DROP TABLE IF EXISTS " + TableData.getTable_ticket_flight());
+        list.add("DROP TABLE IF EXISTS " + TableData.getTable_flightPoint());
+        list.add("DROP TABLE IF EXISTS " + TableData.getTable_flight());
+        list.add("DROP TABLE IF EXISTS " + TableData.getTable_ticket());
+
+        return list;
+
     }
 
     public void addFlightPoint(FlightPoint o){

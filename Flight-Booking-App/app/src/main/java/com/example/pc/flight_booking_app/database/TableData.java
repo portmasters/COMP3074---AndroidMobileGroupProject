@@ -88,6 +88,9 @@ public class TableData {
     public static String getFlightPointC4() {
         return flightPointC4;
     }
+    public static String getFlightPointC5() {
+        return flightPointC5;
+    }
 
     //Ticket table
     private static final String table_ticket = "ticket_t";
@@ -116,13 +119,11 @@ public class TableData {
     private static final String flightPointC2 = "country";
     private static final String flightPointC3 = "lat";
     private static final String flightPointC4 = "long";
-
-
-    public static String getFlightPointC5() {
-        return flightPointC5;
-    }
-
     private static final String flightPointC5 = "city";
+
+
+
+
 
 
 
