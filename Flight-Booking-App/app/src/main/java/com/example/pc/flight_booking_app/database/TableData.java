@@ -95,7 +95,7 @@ public class TableData {
     private static final String ticketC2 = "PassengerID";
 
     //Ticket to Flight associated table
-    private static final String table_ticket_flight = "ticket-flight";
+    private static final String table_ticket_flight = "ticket_flight";
     private static final String ticket_flightC1 = "ticketID";
     private static final String ticket_flightC2 = "flight_number";
 
@@ -112,11 +112,17 @@ public class TableData {
 
     //Countries table
     private static final String table_flightPoint = "flightPoint_t";
-    private static final String flightPointC1 = "flightPointid";
-    private static final String flightPointC2 = "country_name";
-    private static final String flightPointC3 = "long";
-    private static final String flightPointC4 = "lat";
+    private static final String flightPointC1 = "flight_Point_id";
+    private static final String flightPointC2 = "country";
+    private static final String flightPointC3 = "lat";
+    private static final String flightPointC4 = "long";
 
+
+    public static String getFlightPointC5() {
+        return flightPointC5;
+    }
+
+    private static final String flightPointC5 = "city";
 
 
 

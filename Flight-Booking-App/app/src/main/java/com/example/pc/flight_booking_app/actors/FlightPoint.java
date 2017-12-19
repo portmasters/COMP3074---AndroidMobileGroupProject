@@ -1,18 +1,18 @@
 package com.example.pc.flight_booking_app.actors;
 
 /**
- * Created by PC on 12/17/2017.
+ * Created by PC on 12/18/2017.
  */
 
-public class flightPoint {
-    public flightPoint() {
+public class FlightPoint {
+    public FlightPoint() {
     }
 
-    public flightPoint(int id, String name, float lat, float longi) {
-        this.id = id;
-        this.name = name;
+    public FlightPoint(String country, float lat, float longi, String city) {
+        this.country = country;
         this.lat = lat;
         this.longi = longi;
+        this.city = city;
     }
 
     public int getId() {
@@ -23,12 +23,12 @@ public class flightPoint {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCountry() {
+        return country;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public float getLat() {
@@ -47,8 +47,18 @@ public class flightPoint {
         this.longi = longi;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+
     private int id;
-    private String name;
+    private String country;
     private float lat;
     private float longi;
+    private String city;
 }

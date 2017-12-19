@@ -1,6 +1,7 @@
 package com.example.pc.flight_booking_app.activities;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class FlightBooking extends AppCompatActivity {
     private TextView txtDateReturn;
     private Button btnDateReturn;
 
+    private Button btnOrigin;
+
     private boolean isReturnClick = false;
 
 
@@ -41,6 +44,8 @@ public class FlightBooking extends AppCompatActivity {
         chkRound = (CheckBox) findViewById(R.id.fbChkRound);
         btnDateReturn = (Button) findViewById(R.id.fbBtnDateReturn);
         txtDateReturn = (TextView) findViewById(R.id.fbTxtDateReturn);
+
+        btnOrigin = (Button) findViewById(R.id.fbBtnOrigin);
 
         //Set visible
         btnDateReturn.setVisibility(View.INVISIBLE);
@@ -119,6 +124,16 @@ public class FlightBooking extends AppCompatActivity {
                     btnDateReturn.setVisibility(View.INVISIBLE);
                     txtDateReturn.setVisibility(View.INVISIBLE);
                 }
+            }
+        });
+
+        //Origin Selection
+        btnOrigin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FlightBooking.this,Flight_Point_List.class);
+
+                startActivity(intent);
             }
         });
 

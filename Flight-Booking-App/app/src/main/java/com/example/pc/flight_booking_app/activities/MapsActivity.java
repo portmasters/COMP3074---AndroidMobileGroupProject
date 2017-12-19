@@ -22,7 +22,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private Button btnContinue;
-    float resultKm = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +63,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng toronto = new LatLng(43.678317, -79.626538);
         float[] result = new float[1];
 
-        Location.distanceBetween(43.678317, -79.626538,-34, 151,result);
-        resultKm = Math.round(result[0]/1000);
-
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.addMarker(new MarkerOptions().position(toronto).title("Destination, " + resultKm + "km"));
+        mMap.addMarker(new MarkerOptions().position(toronto).title("Mark"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-
+        Location.distanceBetween(43.678317, -79.626538,-34, 151,result);
 
         Polyline line = mMap.addPolyline(new PolylineOptions()
                 .add(toronto,sydney)

@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Used to test other activities
-        Intent i = new Intent(this,MapsActivity.class);
+        Intent i = new Intent(this,HomeScreen.class);
         startActivity(i);
         //
 

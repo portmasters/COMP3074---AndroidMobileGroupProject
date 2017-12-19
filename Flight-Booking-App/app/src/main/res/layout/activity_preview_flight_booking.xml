@@ -110,10 +110,10 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView10"
-        android:layout_below="@+id/textView12"
-        android:layout_marginTop="20dp"
-        android:text="Price Total" />
+        android:layout_alignStart="@+id/textView10"
+        android:layout_below="@+id/textView10"
+        android:layout_marginTop="19dp"
+        android:text="Price" />
 
     <Button
         android:id="@+id/button2"
@@ -123,33 +123,4 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="11dp"
         android:text="Confirm" />
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView8"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_toEndOf="@+id/textView5"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_below="@+id/textView10"
-        android:layout_marginTop="21dp"
-        android:text="Ticket amount #" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView12"
-        android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/textView12" />
 </RelativeLayout>
