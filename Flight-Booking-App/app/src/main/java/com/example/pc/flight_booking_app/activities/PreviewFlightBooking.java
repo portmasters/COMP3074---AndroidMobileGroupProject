@@ -38,7 +38,7 @@ public class PreviewFlightBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview_flight_booking);
 
-
+        //Set Variables
         bundle = getIntent().getExtras();
         dDate = bundle.getString("departure");
         origin = bundle.getString("origin");
