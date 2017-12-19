@@ -1,5 +1,6 @@
 package com.example.pc.flight_booking_app.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,7 @@ public class Flight_Point_List extends AppCompatActivity {
 
     private int[] id;
     private String[] listing;
-    private Bundle extras;
+    private Bundle bundle;
     private boolean isOrigin;
     private ListView list;
     private List<FlightPoint> listGrab;
@@ -34,8 +35,8 @@ public class Flight_Point_List extends AppCompatActivity {
         list = (ListView) findViewById(R.id.fplLvFlightPoint);
         id = new int[listGrab.size()];
         listing = new String[listGrab.size()];
-        extras = getIntent().getExtras();
-
+        bundle = getIntent().getExtras();
+        isOrigin = bundle.getBoolean("isOrigin");
 
         for(int i=0;i<listGrab.size();i++){
             id[i] = listGrab.get(i).getId();
@@ -49,7 +50,30 @@ public class Flight_Point_List extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent (Flight_Point_List.this, FlightBooking.class);
+                Bundle extras = new Bundle();
 
+                extras.putString("country",listGrab.get(i).getCountry());
+                extras.putString("city",listGrab.get(i).getCity());
+                extras.putBoolean("isOrigin", isOrigin);
+                extras.putString("departure", bundle.getString("departure"));
+                extras.putString("return", bundle.getString("return"));
+                extras.putString("destination", bundle.getString("destination"));
+                extras.putString("origin", bundle.getString("origin"));
+                extras.putBoolean("chkRound", bundle.getBoolean("chkRound"));
+
+                if(isOrigin) {
+                    extras.putInt("firstID", listGrab.get(i).getId());
+                    extras.putInt("secondID", bundle.getInt("secondID"));
+
+                }
+                else {
+                    extras.putInt("firstID", bundle.getInt("firstID"));
+                    extras.putInt("secondID",listGrab.get(i).getId());
+                }
+                intent.putExtras(extras);
+
+                startActivity(intent);
 
             }
         });

@@ -20,7 +20,7 @@ public class PreviewFlightBooking extends AppCompatActivity {
 
         lvAirline = (ListView) findViewById(R.id.pfLvAirline);
 
-        selectedAirline[0] = "Select airline";
+        selectedAirline = new String[]{"Select airline"};
 
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, selectedAirline);
         lvAirline.setAdapter(arrayAdapter);

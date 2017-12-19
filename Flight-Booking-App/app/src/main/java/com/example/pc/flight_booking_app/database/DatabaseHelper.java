@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.pc.flight_booking_app.actors.FlightPoint;
+import com.example.pc.flight_booking_app.actors.Flights;
 import com.example.pc.flight_booking_app.utility.Listings;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqlDB) {
 
+        //drop table
         for(String o : dropTable())
             sqlDB.execSQL(o);
 
@@ -41,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String CREATE_FLIGHT_T = "CREATE TABLE " + TableData.getTable_flight()
                 + "("
-                + TableData.getTicket_flightC1() + " INTEGER PRIMARY KEY,"
+                + TableData.getFlightC1() + " INTEGER PRIMARY KEY,"
                 + TableData.getFlightC2() + " TEXT,"
                 + TableData.getFlightC3() + " TEXT,"
                 + TableData.getFlightC4() + " TEXT,"
@@ -77,12 +79,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         {
             ContentValues values = new ContentValues();
             values.put(TableData.getFlightPointC2(),o.getCountry());
-            values.put(TableData.getFlightPointC3(),o.getLongi());
-            values.put(TableData.getFlightPointC4(),o.getLat());
+            values.put(TableData.getFlightPointC3(),o.getLat());
+            values.put(TableData.getFlightPointC4(),o.getLongi());
             values.put(TableData.getFlightPointC5(),o.getCity());
 
             sqlDB.insert(TableData.getTable_flightPoint(),null,values);
         }
+
+        ContentValues value = new ContentValues();
+        value.put(TableData.getFlightC1(),10010);
+        value.put(TableData.getFlightC2(),"");
+        value.put(TableData.getFlightC3(),"");
+        value.put(TableData.getFlightC4(),"");
+        value.put(TableData.getFlightC5(),"");
+        value.put(TableData.getFlightC6(),"");
+        value.put(TableData.getFlightC7(),"");
+        value.put(TableData.getFlightC8(),"");
+
+        sqlDB.insert(TableData.getTable_flight(),null,value);
 
 
 
@@ -93,8 +107,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqlDB, int i, int i1) {
         //Execute when database version is updated
 
-        for(String o : dropTable())
-        sqlDB.execSQL(o);
         onCreate(sqlDB);
     }
 
@@ -144,9 +156,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 list.add(flightPoint);
             }while(cursor.moveToNext());
         }
-
-
         return list;
+    }
 
+    //addFlights
+    public void addFlight(Flights o){
+
+        SQLiteDatabase sqlDB = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(TableData.getFlightC2(),o.getDepartureDate());
+        values.put(TableData.getFlightC3(),o.getDepartureTime());
+        values.put(TableData.getFlightC4(),o.getAirline());
+        values.put(TableData.getFlightC5(),o.getOrigin());
+        values.put(TableData.getFlightC6(),o.getDestination());
+        values.put(TableData.getFlightC7(),o.getTicketPrice());
+        values.put(TableData.getFlightC8(),o.getFlightTime());
+
+        sqlDB.insert(TableData.getTable_flight(),null,values);
+        sqlDB.close();
+    }
+
+
+    public List<Flights> getFlights(){
+        List<Flights> list = new ArrayList<Flights>();
+
+        String query = "SELECT * FROM "+ TableData.getTable_flightPoint();
+
+        SQLiteDatabase sqlDB = this.getWritableDatabase();
+        Cursor cursor = sqlDB.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Flights flight = new Flights();
+                flight.setFlight_number(Integer.parseInt(cursor.getString(0)));
+                flight.setDepartureDate(cursor.getString(1));
+                flight.setDepartureTime(cursor.getString(2));
+                flight.setAirline(cursor.getString(3));
+                flight.setOrigin(cursor.getString(4));
+                flight.setDestination(cursor.getString(5));
+                flight.setTicketPrice(cursor.getString(6));
+                flight.setFlightTime(cursor.getString(7));
+
+                list.add(flight);
+            }while(cursor.moveToNext());
+        }
+        return list;
     }
 }

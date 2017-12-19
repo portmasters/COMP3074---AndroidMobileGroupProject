@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.pc.flight_booking_app.R;
+import com.example.pc.flight_booking_app.actors.FlightPoint;
+import com.example.pc.flight_booking_app.database.DatabaseHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -18,14 +20,26 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.util.List;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Button btnContinue;
+    private DatabaseHelper sqlDB = new DatabaseHelper(this);
+    private Bundle bundle;
+    private int firstID;
+    private int secondID;
+    private int result2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        bundle = getIntent().getExtras();
+        firstID = bundle.getInt("firstID");
+        secondID = bundle.getInt("secondID");
+
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -38,7 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MapsActivity.this,PreviewFlightBooking.class);
-
+                bundle.putInt("distance",result2);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -58,22 +73,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
 
-        LatLng toronto = new LatLng(43.678317, -79.626538);
+        mMap = googleMap;
+        List<FlightPoint> flightPoints = sqlDB.getFlightPoints();
+        FlightPoint a = null;
+        FlightPoint b = null;
+
+
+        for(int i = 0; i<flightPoints.size(); i++){
+            if(flightPoints.get(i).getId()==firstID)
+                a = flightPoints.get(i);
+
+            if(flightPoints.get(i).getId()==secondID)
+                b = flightPoints.get(i);
+        }
+
+
+        LatLng origin= new LatLng(a.getLat(), a.getLongi());
+        LatLng destination = new LatLng(b.getLat(), b.getLongi());
         float[] result = new float[1];
+        Location.distanceBetween(a.getLat(), a.getLongi(),b.getLat(), b.getLongi(),result);
+        result2 = Math.round(result[0]/1000);
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.addMarker(new MarkerOptions().position(toronto).title("Mark"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        Location.distanceBetween(43.678317, -79.626538,-34, 151,result);
+        mMap.addMarker(new MarkerOptions().position(origin).title("Origin"));
+        mMap.addMarker(new MarkerOptions().position(destination).title("Destination"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(destination));
+
+
+
 
         Polyline line = mMap.addPolyline(new PolylineOptions()
-                .add(toronto,sydney)
+                .add(origin,destination)
                 .width(5)
-                .color(Color.RED));
+                .color(Color.BLUE));
     }
 }
