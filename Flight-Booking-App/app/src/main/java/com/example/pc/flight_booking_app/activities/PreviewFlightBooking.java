@@ -45,16 +45,29 @@ public class PreviewFlightBooking extends AppCompatActivity {
         destination = bundle.getString("destination");
         distance = bundle.getInt("distance");
 
-        btnFlightNumber = findViewById(R.id.pfbEtFlightNumber);
-        btnOrigin = findViewById(R.id.pfbEtOrigin);
-        btnDestination = findViewById(R.id.pfbEtDestination);
-        btnTravelTime = findViewById(R.id.pfbEtTravel);
-        btnPrice = findViewById(R.id.pfbEtPrice);
-        btnDepartureDate = findViewById(R.id.pfbEtDepartureDate);
-        btnDepartureTime = findViewById(R.id.pfbEtDTime);
-        btnArrivalDate = findViewById(R.id.pfbEtArrivalDate);
-        btnArrivalTime = findViewById(R.id.pfbEtATime);
+        btnFlightNumber = (EditText) findViewById(R.id.pfbEtFlightNumber);
+        btnOrigin = (EditText) findViewById(R.id.pfbEtOrigin);
+        btnDestination = (EditText) findViewById(R.id.pfbEtDestination);
+        btnTravelTime = (EditText) findViewById(R.id.pfbEtTravel);
+        btnPrice = (EditText) findViewById(R.id.pfbEtPrice);
+        btnDepartureDate = (EditText) findViewById(R.id.pfbEtDepartureDate);
+        btnDepartureTime = (EditText) findViewById(R.id.pfbEtDTime);
+        btnArrivalDate = (EditText) findViewById(R.id.pfbEtArrivalDate);
+        btnArrivalTime = (EditText) findViewById(R.id.pfbEtATime);
 
+
+        btnOrigin.setText(bundle.getString("origin"));
+        btnDestination.setText(bundle.getString("destination"));
+        btnDepartureDate.setText(bundle.getString("departure"));
+        selectedAirline = new String[]{"Select airline"};
+
+        if(getIntent().hasExtra("airline")) {
+            //btnFlightNumber.setText(bundle.getInt("flight_number"));
+            btnDepartureTime.setText(bundle.getString("departureTime"));
+            btnPrice.setText(bundle.getString("price"));
+            selectedAirline = new String[]{"Airline: " + bundle.getString("airline")};
+            //btnTravelTime.setText(bundle.getString("travelTime"));
+        }
 
         btnFlightNumber.setEnabled(false);
         btnOrigin.setEnabled(false);
@@ -67,7 +80,7 @@ public class PreviewFlightBooking extends AppCompatActivity {
         btnArrivalTime.setEnabled(false);
         lvAirline = (ListView) findViewById(R.id.pfLvAirline);
 
-        selectedAirline = new String[]{"Select airline"};
+
 
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, selectedAirline);
         lvAirline.setAdapter(arrayAdapter);
