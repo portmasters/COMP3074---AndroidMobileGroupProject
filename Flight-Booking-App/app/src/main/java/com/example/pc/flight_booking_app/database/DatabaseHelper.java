@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + TableData.getFlightC4() + " TEXT,"
                 + TableData.getFlightC5() + " TEXT,"
                 + TableData.getFlightC6() + " TEXT,"
-                + TableData.getFlightC7() + " REAL,"
+                + TableData.getFlightC7() + " TEXT,"
                 + TableData.getFlightC8() + " TEXT"
                 + ")";
 
@@ -88,13 +88,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         ContentValues value = new ContentValues();
         value.put(TableData.getFlightC1(),10010);
-        value.put(TableData.getFlightC2(),"");
-        value.put(TableData.getFlightC3(),"");
-        value.put(TableData.getFlightC4(),"");
-        value.put(TableData.getFlightC5(),"");
-        value.put(TableData.getFlightC6(),"");
-        value.put(TableData.getFlightC7(),"");
-        value.put(TableData.getFlightC8(),"");
+        value.put(TableData.getFlightC2()," ");
+        value.put(TableData.getFlightC3()," ");
+        value.put(TableData.getFlightC4()," ");
+        value.put(TableData.getFlightC5()," ");
+        value.put(TableData.getFlightC6()," ");
+        value.put(TableData.getFlightC7()," ");
+        value.put(TableData.getFlightC8()," ");
 
         sqlDB.insert(TableData.getTable_flight(),null,value);
 
@@ -181,7 +181,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<Flights> getFlights(){
         List<Flights> list = new ArrayList<Flights>();
 
-        String query = "SELECT * FROM "+ TableData.getTable_flightPoint();
+        String query = "SELECT * FROM "+ TableData.getTable_flight();
 
         SQLiteDatabase sqlDB = this.getWritableDatabase();
         Cursor cursor = sqlDB.rawQuery(query,null);
