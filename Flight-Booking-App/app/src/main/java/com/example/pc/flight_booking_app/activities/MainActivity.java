@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         /*Yes the push worked to github weeee*/
 =======
 
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
 =======
         /*Yes the push worked to github weeee333444554*/
 >>>>>>> 5c37536785aa583abee8364faa028f0905759878
+=======
+
+>>>>>>> parent of 4ecf9ed... test
 
     }
 }
