@@ -10,6 +10,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.pc.flight_booking_app.R;
+import com.example.pc.flight_booking_app.utility.Listings;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PreviewFlightBooking extends AppCompatActivity {
 
@@ -17,22 +22,19 @@ public class PreviewFlightBooking extends AppCompatActivity {
     private String [] selectedAirline;
     private ArrayAdapter<String> arrayAdapter;
     private Bundle bundle;
-
     private String dDate;
     private String origin;
     private String destination;
-    private int distance;
     private int flightNumber;
-
-    private EditText btnFlightNumber;
-    private EditText btnOrigin;
-    private EditText btnDestination;
-    private EditText btnTravelTime;
-    private EditText btnPrice;
-    private EditText btnDepartureDate;
-    private EditText btnDepartureTime;
-    private EditText btnArrivalDate;
-    private EditText btnArrivalTime;
+    private EditText etFlightNumber;
+    private EditText etOrigin;
+    private EditText etDestination;
+    private EditText etTravelTime;
+    private EditText etPrice;
+    private EditText etDepartureDate;
+    private EditText etDepartureTime;
+    private EditText etArrivalDate;
+    private EditText etArrivalTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,7 @@ public class PreviewFlightBooking extends AppCompatActivity {
         //Set Variables
         setTools();
         bundle = getIntent().getExtras();
-        setBundle();
-
+        setTextandBundles();
 
         setDisableButton();
 
@@ -63,46 +64,59 @@ public class PreviewFlightBooking extends AppCompatActivity {
 
     //disable buttons
     private void setDisableButton(){
-        btnFlightNumber.setEnabled(false);
-        btnOrigin.setEnabled(false);
-        btnDestination.setEnabled(false);
-        btnTravelTime.setEnabled(false);
-        btnPrice.setEnabled(false);
-        btnDepartureDate.setEnabled(false);
-        btnDepartureTime.setEnabled(false);
-        btnArrivalDate.setEnabled(false);
-        btnArrivalTime.setEnabled(false);
+        etFlightNumber.setEnabled(false);
+        etOrigin.setEnabled(false);
+        etDestination.setEnabled(false);
+        etTravelTime.setEnabled(false);
+        etPrice.setEnabled(false);
+        etDepartureDate.setEnabled(false);
+        etDepartureTime.setEnabled(false);
+        etArrivalDate.setEnabled(false);
+        etArrivalTime.setEnabled(false);
     }
 
     private void setTools(){
-        btnFlightNumber = (EditText) findViewById(R.id.pfbEtFlightNumber);
-        btnOrigin = (EditText) findViewById(R.id.pfbEtOrigin);
-        btnDestination = (EditText) findViewById(R.id.pfbEtDestination);
-        btnTravelTime = (EditText) findViewById(R.id.pfbEtTravel);
-        btnPrice = (EditText) findViewById(R.id.pfbEtPrice);
-        btnDepartureDate = (EditText) findViewById(R.id.pfbEtDepartureDate);
-        btnDepartureTime = (EditText) findViewById(R.id.pfbEtDTime);
-        btnArrivalDate = (EditText) findViewById(R.id.pfbEtArrivalDate);
-        btnArrivalTime = (EditText) findViewById(R.id.pfbEtATime);
+        etFlightNumber = (EditText) findViewById(R.id.pfbEtFlightNumber);
+        etOrigin = (EditText) findViewById(R.id.pfbEtOrigin);
+        etDestination = (EditText) findViewById(R.id.pfbEtDestination);
+        etTravelTime = (EditText) findViewById(R.id.pfbEtTravel);
+        etPrice = (EditText) findViewById(R.id.pfbEtPrice);
+        etDepartureDate = (EditText) findViewById(R.id.pfbEtDepartureDate);
+        etDepartureTime = (EditText) findViewById(R.id.pfbEtDTime);
+        etArrivalDate = (EditText) findViewById(R.id.pfbEtArrivalDate);
+        etArrivalTime = (EditText) findViewById(R.id.pfbEtATime);
         lvAirline = (ListView) findViewById(R.id.pfLvAirline);
     }
 
-    private void setBundle(){
+    private void setTextandBundles(){
+        Date date = Listings.getDate(bundle.getString("departure"));
+        SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd, yyyy");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("hh");
+
         dDate = bundle.getString("departure");
         origin = bundle.getString("origin");
         destination = bundle.getString("destination");
-        distance = bundle.getInt("distance");
-        btnOrigin.setText(bundle.getString("origin"));
-        btnDestination.setText(bundle.getString("destination"));
-        btnDepartureDate.setText(bundle.getString("departure"));
+        etOrigin.setText(bundle.getString("origin"));
+        etDestination.setText(bundle.getString("destination"));
+        etDepartureDate.setText(formatter.format(date));
         selectedAirline = new String[]{"Select airline"};
+
         if(getIntent().hasExtra("airline")) {
             flightNumber = bundle.getInt("flightID");
-            btnFlightNumber.setText(Integer.toString(flightNumber));
-            btnDepartureTime.setText(bundle.getString("departureTime"));
-            btnPrice.setText(bundle.getString("price"));
+            String departureTime = bundle.getString("departureTime");
+            String travelTime = bundle.getString("travelTime");
+            Date arrivalDate = Listings.calcArrivalTime(dDate,Integer.parseInt(departureTime)/100,Integer.parseInt(travelTime));
+
+            etFlightNumber.setText(Integer.toString(flightNumber));
+            etDepartureTime.setText(departureTime);
+            etPrice.setText(bundle.getString("price"));
             selectedAirline = new String[]{"Airline: " + bundle.getString("airline")};
-            //btnTravelTime.setText(bundle.getString("travelTime"));
+            etTravelTime.setText(travelTime + " Hours");
+            etArrivalDate.setText(formatter.format(arrivalDate));
+
+
+
+
         }
     }
 }

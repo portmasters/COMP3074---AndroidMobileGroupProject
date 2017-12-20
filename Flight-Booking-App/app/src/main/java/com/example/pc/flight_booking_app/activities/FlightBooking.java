@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pc.flight_booking_app.R;
+import com.example.pc.flight_booking_app.utility.Listings;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -225,26 +226,15 @@ public class FlightBooking extends AppCompatActivity {
             Toast.makeText(this, "Date cannot be empty", Toast.LENGTH_SHORT).show();
             return false;
         }else if(!txtDateReturn.getText().toString().equals(n) && chkRound.isChecked()){
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-            try{
-                Date date = sdf.parse(txtDateDeparture.getText().toString());
-                Date date2 = sdf.parse(txtDateReturn.getText().toString());
-
-                int n2 = date.compareTo(date2);
+            Date date = Listings.getDate(txtDateDeparture.getText().toString());
+            Date date2 = Listings.getDate(txtDateReturn.getText().toString());
+            int n2 = date.compareTo(date2);
                 if(n2 >= 0){
                     Toast.makeText(this, "Return Date must be after Departure date", Toast.LENGTH_SHORT).show();
                     return false;
                 }
-            }catch(Exception e){
-                Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-
 
         }
-
         return true;
     }
 

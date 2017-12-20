@@ -4,7 +4,10 @@ import com.example.pc.flight_booking_app.activities.Flight_Point_List;
 import com.example.pc.flight_booking_app.actors.FlightPoint;
 import com.example.pc.flight_booking_app.actors.Flights;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -17,7 +20,7 @@ public class Listings {
 
 
 
-    public static List<FlightPoint> flightPointList(){
+    public static List<FlightPoint> addNewFlightPointList(){
         List<FlightPoint> list = new ArrayList<>();
 
         list.add(new FlightPoint("Canada",43.678317f,-79.626538f,"Toronto"));
@@ -26,7 +29,7 @@ public class Listings {
         return list;
     }
 
-    public static List<Flights> randomFlightlist(String date, String origin, String destination, int distance){
+    public static List<Flights> addNewRandomFlightlist(String date, String origin, String destination, int distance){
         Random rn = new Random();
 
         int[] startTime = new int[3];
@@ -46,13 +49,48 @@ public class Listings {
         }
 
         List<Flights> list = new ArrayList<Flights>();
-        int flight = distance/700;
+        int flightTimeHours = Math.round(distance/700);
         int price = distance/5;
-        list.add(new Flights(date,Integer.toString(startTime[0]),"Eva",origin,destination,Integer.toString(price + (rn.nextInt(3)*100)),Integer.toString(flight)));
-        list.add(new Flights(date,Integer.toString(startTime[1]),"Emirates",origin,destination,Integer.toString(price + (rn.nextInt(3)*100)),Integer.toString(flight)));
-        list.add(new Flights(date,Integer.toString(startTime[2]),"Hannel",origin,destination,Integer.toString(price + (rn.nextInt(3)*100)),Integer.toString(flight)));
+        list.add(new Flights(date,Integer.toString(startTime[0]),"Eva",origin,destination,Integer.toString(price + (rn.nextInt(4)*100)),Integer.toString(flightTimeHours)));
+        list.add(new Flights(date,Integer.toString(startTime[1]),"Emirates",origin,destination,Integer.toString(price + (rn.nextInt(4)*100)),Integer.toString(flightTimeHours)));
+        list.add(new Flights(date,Integer.toString(startTime[2]),"Hannel",origin,destination,Integer.toString(price + (rn.nextInt(4)*100)),Integer.toString(flightTimeHours)));
 
         return list;
+    }
+
+    public static Date calcArrivalTime(String departure, int time, int duration){
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        Date date;
+        try {
+            Date dateCheck = sdf.parse(departure);
+            cal.setTime(dateCheck);
+            cal.add(Calendar.HOUR_OF_DAY,time + duration);
+
+
+
+
+
+        }catch (Exception e){
+            return null;
+        }
+
+        date = cal.getTime();
+        return date;
+    }
+
+    public static Date getDate(String dateInput){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date;
+        try {
+            date = sdf.parse(dateInput);
+
+        }catch (Exception e){
+            return null;
+        }
+
+        return date;
     }
 
 }

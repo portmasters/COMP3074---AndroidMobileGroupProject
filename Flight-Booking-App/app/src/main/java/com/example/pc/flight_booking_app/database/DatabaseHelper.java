@@ -75,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sqlDB.execSQL(execute);
 
 
-        for(FlightPoint o : Listings.flightPointList())
+        for(FlightPoint o : Listings.addNewFlightPointList())
         {
             ContentValues values = new ContentValues();
             values.put(TableData.getFlightPointC2(),o.getCountry());

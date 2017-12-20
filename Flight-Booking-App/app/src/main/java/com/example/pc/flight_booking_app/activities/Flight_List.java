@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.pc.flight_booking_app.R;
-import com.example.pc.flight_booking_app.actors.FlightPoint;
 import com.example.pc.flight_booking_app.actors.Flights;
 import com.example.pc.flight_booking_app.database.DatabaseHelper;
 import com.example.pc.flight_booking_app.utility.Listings;
@@ -37,33 +36,30 @@ public class Flight_List extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight__list);
 
-
+        //variable set
         DatabaseHelper sqlDB = new DatabaseHelper(this);
-
         listGrab = sqlDB.getFlights();
         listGrab2 = new ArrayList<Flights>();
         list = (ListView) findViewById(R.id.fpvLvFlight);
-
-
         bundle = getIntent().getExtras();
         dDate = bundle.getString("departure");
         origin = bundle.getString("origin");
         destination = bundle.getString("destination");
         distance = bundle.getInt("distance");
 
+        populateList();
 
-
-        setList();
-
+        //This will set list for viewing
         if(listGrab2.size() == 0){
-            for(Flights o :Listings.randomFlightlist(dDate,origin,destination,distance)){
+            for(Flights o :Listings.addNewRandomFlightlist(dDate,origin,destination,distance)){
                 sqlDB.addFlight(o);
             }
             listGrab = sqlDB.getFlights();
-            setList();
+            populateList();
         }
 
         id = new int[listGrab2.size()];
+
         listing = new String[listGrab2.size()];
         for(int i=0;i<listGrab2.size();i++){
             id[i] = listGrab2.get(i).getFlight_number();
@@ -73,7 +69,9 @@ public class Flight_List extends AppCompatActivity {
 
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,listing);
         list.setAdapter(arrayAdapter);
+        //
 
+        //On item selection
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -82,6 +80,7 @@ public class Flight_List extends AppCompatActivity {
                 bundle.putString("airline", listGrab2.get(i).getAirline());
                 bundle.putString("departureTime", listGrab2.get(i).getDepartureTime());
                 bundle.putString("price", listGrab2.get(i).getTicketPrice());
+                bundle.putString("travelTime", listGrab2.get(i).getFlightTime());
 
                 intent.putExtras(bundle);
                 startActivity(intent);
@@ -89,7 +88,7 @@ public class Flight_List extends AppCompatActivity {
         });
     }
 
-    public void setList(){
+    public void populateList(){
         for(Flights o : listGrab){
             if(o.getDepartureDate().equals(dDate) && o.getOrigin().equals(origin) && o.getDestination().equals(destination)){
                 listGrab2.add(o);
