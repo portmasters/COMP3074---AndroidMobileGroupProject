@@ -66,7 +66,7 @@ public class Flight_List extends AppCompatActivity {
         id = new int[listGrab2.size()];
         listing = new String[listGrab2.size()];
         for(int i=0;i<listGrab2.size();i++){
-            id[i] = listGrab.get(i).getFlight_number();
+            id[i] = listGrab2.get(i).getFlight_number();
             listing[i] = "Airline: " + listGrab2.get(i).getAirline() + " \nDeparture time: " + Integer.parseInt(listGrab2.get(i).getDepartureTime())/100 + ":00 \nPrice: $"
                     + listGrab2.get(i).getTicketPrice();
         }
@@ -78,7 +78,7 @@ public class Flight_List extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(Flight_List.this,PreviewFlightBooking.class);
-                bundle.putInt("flight_number",id[i]);
+                bundle.putInt("flightID",id[i]);
                 bundle.putString("airline", listGrab2.get(i).getAirline());
                 bundle.putString("departureTime", listGrab2.get(i).getDepartureTime());
                 bundle.putString("price", listGrab2.get(i).getTicketPrice());
