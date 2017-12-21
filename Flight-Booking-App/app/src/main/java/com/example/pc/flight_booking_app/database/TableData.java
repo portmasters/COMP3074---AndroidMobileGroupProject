@@ -92,6 +92,26 @@ public class TableData {
         return flightPointC5;
     }
 
+    public static String getTable_customer(){return table_customer;}
+
+    public static String getCustomerC1(){return customerC1;}
+
+    public static String getCustomerC2(){return customerC2;}
+
+    public static String getCustomerC3(){return customerC3;}
+
+    public static String getCustomerC4(){return customerC4;}
+
+    public static String getCustomerC5(){return customerC5;}
+
+    public static String getCustomerC6(){return customerC6;}
+
+    public static String getCustomerC7(){return customerC7;}
+
+    public static String getCustomerC8(){return customerC8;}
+
+    public static String getCustomerC9(){return customerC9;}
+
     //Ticket table
     private static final String table_ticket = "ticket_t";
     private static final String ticketC1 = "ticketID";
@@ -121,7 +141,17 @@ public class TableData {
     private static final String flightPointC4 = "long";
     private static final String flightPointC5 = "city";
 
-
+    //Customer table
+    private static final String table_customer = "customer_t";
+    private static final String customerC1 = "customer_id";
+    private static final String customerC2 = "username";
+    private static final String customerC3 = "password";
+    private static final String customerC4 = "first_name";
+    private static final String customerC5 = "last_name";
+    private static final String customerC6 = "address";
+    private static final String customerC7 = "phone_number";
+    private static final String customerC8 = "credit_card_number";
+    private static final String customerC9 = "security_number";
 
 
 

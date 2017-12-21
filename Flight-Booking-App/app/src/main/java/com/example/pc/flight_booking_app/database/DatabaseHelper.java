@@ -68,7 +68,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + TableData.getTicket_flightC2() + " INTEGER"
                 + ")";
 
-        String [] statements = new String[]{CREATE_TICKET_T, CREATE_FLIGHT_T, CREATE_FLIGHTPOINT_T, CREATE_TICKET_FLIGHT_T};
+        String CREATE_CUSTOMER_T = "CREATE TABLE " + TableData.getTable_customer()
+                + "("
+                + TableData.getCustomerC1() + " INTEGER PRIMARY KEY,"
+                + TableData.getCustomerC2() + " TEXT,"
+                + TableData.getCustomerC3() + " TEXT,"
+                + TableData.getCustomerC4() + " TEXT,"
+                + TableData.getCustomerC5() + " TEXT,"
+                + TableData.getCustomerC6() + " TEXT,"
+                + TableData.getCustomerC7() + " TEXT,"
+                + TableData.getCustomerC8() + " TEXT,"
+                + TableData.getCustomerC9() + " TEXT"
+                + ")";
+
+        String [] statements = new String[]{CREATE_TICKET_T, CREATE_FLIGHT_T, CREATE_FLIGHTPOINT_T, CREATE_TICKET_FLIGHT_T, CREATE_CUSTOMER_T};
 
         //execute table
         for(String execute : statements)
@@ -117,6 +130,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         list.add("DROP TABLE IF EXISTS " + TableData.getTable_flightPoint());
         list.add("DROP TABLE IF EXISTS " + TableData.getTable_flight());
         list.add("DROP TABLE IF EXISTS " + TableData.getTable_ticket());
+        list.add("DROP TABLE IF EXISTS " + TableData.getTable_customer());
 
         return list;
 
