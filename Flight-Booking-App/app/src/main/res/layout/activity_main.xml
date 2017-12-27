@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.example.pc.flight_booking_app.activities.MainActivity">
+
+    <EditText
+        android:id="@+id/lgnETPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="106dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/lgnETUser"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/lgnETUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="56dp"
+        android:layout_marginTop="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/lgnETPassword" />
+
+    <CheckBox
+        android:id="@+id/lgnCBRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        tools:layout_editor_absoluteX="177dp"
+        tools:layout_editor_absoluteY="164dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/lgnETPassword"
+        android:layout_alignEnd="@+id/lgnETPassword" />
+
+    <Button
+        android:id="@+id/lgnBtnLogin"
+        android:layout_width="221dp"
+        android:layout_height="45dp"
+        android:layout_alignEnd="@+id/lgnCBRemember"
+        android:layout_below="@+id/lgnCBRemember"
+        android:layout_marginTop="11dp"
+        android:text="Login"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="214dp" />
+
+    <Button
+        android:id="@+id/lgnBtnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="447dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account?"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/lgnBtnRegister"
+        android:layout_alignBottom="@+id/lgnBtnRegister"
+        android:layout_toStartOf="@+id/lgnBtnRegister"
+        android:layout_marginEnd="17dp" />
+
+</RelativeLayout>

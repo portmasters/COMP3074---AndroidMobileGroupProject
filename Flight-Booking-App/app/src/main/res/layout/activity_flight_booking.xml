@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.example.pc.flight_booking_app.activities.FlightBooking">
+
+    <TextView
+        android:id="@+id/fbTxtDateDeparture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fbBtnDateDeparture"
+        android:layout_alignBottom="@+id/fbBtnDateDeparture"
+        android:layout_alignParentStart="true"
+        android:text="YYYY-MM-DD"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/fbTxtDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fbBtnDes"
+        android:layout_alignBottom="@+id/fbBtnDes"
+        android:layout_alignParentStart="true"
+        android:text="Destination"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/fbTxtOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fbBtnOrigin"
+        android:layout_alignBottom="@+id/fbBtnOrigin"
+        android:layout_alignParentStart="true"
+        android:text="Origin"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/fbBtnOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="34dp"
+        android:text="Set Origin"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/fbBtnDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fbBtnOrigin"
+        android:layout_below="@+id/fbBtnOrigin"
+        android:layout_marginTop="22dp"
+        android:text="Set Destination"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/fbBtnDateDeparture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fbBtnDes"
+        android:layout_below="@+id/fbBtnDes"
+        android:layout_marginTop="18dp"
+        android:text="Set Date Depature"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/fbBtnPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="Preview flight" />
+
+    <CheckBox
+        android:id="@+id/fbChkRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fbBtnDateDeparture"
+        android:layout_below="@+id/fbBtnDateDeparture"
+        android:layout_marginTop="26dp"
+        android:text="Round Trip?"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/fbBtnDateReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fbChkRound"
+        android:layout_below="@+id/fbChkRound"
+        android:layout_marginTop="12dp"
+        android:text="Set Date Return"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/fbTxtDateReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fbBtnDateReturn"
+        android:layout_alignBottom="@+id/fbBtnDateReturn"
+        android:layout_alignStart="@+id/fbTxtDateDeparture"
+        android:text="YYYY-MM-DD"
+        android:textSize="14sp" />
+</RelativeLayout>

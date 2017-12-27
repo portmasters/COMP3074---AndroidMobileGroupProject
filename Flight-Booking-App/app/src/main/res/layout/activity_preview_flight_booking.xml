@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.example.pc.flight_booking_app.activities.PreviewFlightBooking">
+
+    <ListView
+        android:id="@+id/pfLvAirline"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/pfLvAirline"
+        android:layout_below="@+id/pfLvAirline"
+        android:layout_marginTop="21dp"
+        android:text="Flight Number"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/pfbEtFlightNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignParentEnd="true"
+        android:ems="10"
+        android:hint="Pick airline"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_below="@+id/pfbEtFlightNumber"
+        android:layout_marginTop="12dp"
+        android:text="Origin"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/pfbEtOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignStart="@+id/pfbEtFlightNumber"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Origin"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_below="@+id/pfbEtOrigin"
+        android:layout_marginTop="13dp"
+        android:text="Destination"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pfbEtDepartureDate"
+        android:layout_alignBottom="@+id/pfbEtDepartureDate"
+        android:layout_alignParentStart="true"
+        android:text="Departure Date" />
+
+    <EditText
+        android:id="@+id/pfbEtDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView7"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignStart="@+id/pfbEtOrigin"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Destination"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pfbEtArrivalDate"
+        android:layout_alignBottom="@+id/pfbEtArrivalDate"
+        android:layout_alignParentStart="true"
+        android:text="Arrival Date" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pfbEtTravel"
+        android:layout_alignBottom="@+id/pfbEtTravel"
+        android:layout_alignParentStart="true"
+        android:text="Travel time" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pfbEtPrice"
+        android:layout_alignBottom="@+id/pfbEtPrice"
+        android:layout_alignStart="@+id/textView2"
+        android:text="Price" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="Confirm" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pfbEtDTime"
+        android:layout_alignBottom="@+id/pfbEtDTime"
+        android:layout_alignParentStart="true"
+        android:text="Time of Departure" />
+
+    <EditText
+        android:id="@+id/pfbEtTravel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/pfbEtDestination"
+        android:ems="10"
+        android:hint="Pick airline"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/pfbEtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/pfbEtTravel"
+        android:ems="10"
+        android:hint="pick airline"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/pfbEtDepartureDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/pfbEtPrice"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Date"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/pfbEtDTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/pfbEtDepartureDate"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/pfbEtArrivalDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/pfbEtDTime"
+        android:ems="10"
+        android:hint="pick airline"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pfbEtATime"
+        android:layout_alignBottom="@+id/pfbEtATime"
+        android:layout_alignParentStart="true"
+        android:text="Time of Arrival" />
+
+    <EditText
+        android:id="@+id/pfbEtATime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/textView9"
+        android:ems="10"
+        android:hint="Pick airline"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+</RelativeLayout>
